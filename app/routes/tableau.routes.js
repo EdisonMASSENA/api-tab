@@ -5,8 +5,8 @@ module.exports = app => {
   
     app.get("/tableau", tableau.findAll);
   
-    app.put("/tableau/:tableauId", tableau.update);
+    app.put("/tableau/:id", tableau.update);
   
-    app.delete("/tableau/:tableauId", tableau.delete);
+    app.delete("/tableau/:id", tableau.delete);
 
   };
