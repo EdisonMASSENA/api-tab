@@ -1,8 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require('cors');
-
 const app = express()
+const db = require("./app/models");
+const Role = db.role;
 
 
 app.use(cors());
@@ -10,23 +11,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-// db.sequelize.sync({force: true}).then(() => {
-//   console.log('Drop and Resync Db');
-//   initial();
-// });
+db.sequelize.sync()
 
-// function initial() {
-//   User.create({
-//     direction: "DSI",
-//     mdp: 123456
-//   });
- 
-//   User.create({
-//     direction: "DJ",
-//     mdp: 123456
-//   });
-  
-// }
+
+require('./app/routes/auth.routes')(app);
+require('./app/routes/user.routes')(app);
 
 require("./app/routes/tableau.routes")(app);
 
