@@ -1,6 +1,7 @@
 const db = require("../models");
 const config = require("../config/auth.config");
 const User = db.user;
+const Op = db.Sequelize.Op;
 
 var jwt = require("jsonwebtoken");
 
@@ -16,8 +17,17 @@ exports.signin = (req, res) => {
         return res.status(404).send({ message: "User Not found." });
       }
 
+      var token = jwt.sign({ id: user.id }, config.secret, {
+        expiresIn: 86400 // 24 hours
+      });
+
       if (req.body.password == user.password) {
-        var passwordIsValid = true
+        var passwordIsValid = true;
+        res.status(200).send({
+          id: user.id,
+          username: user.username,
+          accessToken: token
+        });
       }
 
       if (!passwordIsValid) {
@@ -27,25 +37,24 @@ exports.signin = (req, res) => {
         });
       }
 
-      var token = jwt.sign({ id: user.id }, config.secret, {
-        expiresIn: 86400 // 24 hours
-      });
-
-      var authorities = [];
-      user.getRoles().then(roles => {
-        for (let i = 0; i < roles.length; i++) {
-          authorities.push("ROLE_" + roles[i].name.toUpperCase());
-        }
-        res.status(200).send({
-          id: user.id,
-          username: user.username,
-          email: user.email,
-          roles: authorities,
-          accessToken: token
-        });
-      });
     })
     .catch(err => {
       res.status(500).send({ message: err.message });
+    });
+};
+
+exports.user = (req, res) => {
+  // const username = req.query.username;
+  // var condition = username ? { username: { [Op.like]: `%${username}%` } } : null;
+
+  User.findAll({ attributes: ['username'] })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving users."
+      });
     });
 };

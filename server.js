@@ -3,7 +3,6 @@ const bodyParser = require("body-parser");
 const cors = require('cors');
 const app = express()
 const db = require("./app/models");
-const Role = db.role;
 
 
 app.use(cors());
@@ -15,7 +14,6 @@ db.sequelize.sync()
 
 
 require('./app/routes/auth.routes')(app);
-require('./app/routes/user.routes')(app);
 
 require("./app/routes/tableau.routes")(app);
 
