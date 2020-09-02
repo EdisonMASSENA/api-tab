@@ -23,7 +23,7 @@ exports.create = (req, res) => {
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Tutorial."
+          err.message || "Une erreur s'est produite lors de la création du projet."
       });
     });
 };
@@ -39,7 +39,7 @@ exports.findAll = (req, res) => {
       .catch(err => {
         res.status(500).send({
           message:
-            err.message || "Some error occurred while retrieving tutorials."
+            err.message || "Une erreur s'est produite lors de la récupération des projets."
         });
       });
 };
@@ -53,17 +53,17 @@ exports.update = (req, res) => {
       .then(num => {
         if (num == 1) {
           res.send({
-            message: "Tableau was updated successfully."
+            message: "Le projet a été mis à jour avec succès."
           });
         } else {
           res.send({
-            message: `Cannot update Tableau with id=${id}. Maybe Tableau was not found or req.body is empty!`
+            message: `Mise à jour impossible avec id=${id}.Elément manquant.`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error updating Tableau with id=" + id
+          message: "Erreur lors de la mise à jour du projet avec l'id=" + id
         });
       });
 };
@@ -77,17 +77,17 @@ exports.delete = (req, res) => {
       .then(num => {
         if (num == 1) {
           res.send({
-            message: "Tableau was deleted successfully!"
+            message: "Le projet a été supprimé avec succès"
           });
         } else {
           res.send({
-            message: `Cannot delete Tableau with id=${id}. Maybe Tableau was not found!`
+            message: `Suppresion impossible avec l'id=${id}.Elément manquant.`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Could not delete Tableau with id=" + id
+          message: "Suppresion impossible avec l'id=" + id
         });
       });
 };

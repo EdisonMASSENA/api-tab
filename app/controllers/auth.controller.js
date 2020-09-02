@@ -14,7 +14,7 @@ exports.signin = (req, res) => {
   })
     .then(user => {
       if (!user) {
-        return res.status(404).send({ message: "User Not found." });
+        return res.status(404).send({ message: "Direction inexistante." });
       }
 
       var token = jwt.sign({ id: user.id }, config.secret, {
@@ -33,7 +33,7 @@ exports.signin = (req, res) => {
       if (!passwordIsValid) {
         return res.status(401).send({
           accessToken: null,
-          message: "Invalid Password!"
+          message: "Mauvais mot de passe"
         });
       }
 
@@ -54,7 +54,7 @@ exports.user = (req, res) => {
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving users."
+          err.message || "Une erreur s'est produite lors de la récupération des utilisateurs."
       });
     });
 };
