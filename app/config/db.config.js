@@ -4,10 +4,6 @@ module.exports = {
     PASSWORD: "e09a8540bb75e4bcd5d85a7ce2407753d20dbaa506f6818a487166c7192a4951",
     DB: "d5vu1rlu4f3ecf",
     dialect: "postgres",
-    ssl: {      /* <----- Add SSL option */
-      require: true,
-      rejectUnauthorized: false 
-    },
     pool: {
       max: 5,
       min: 0,
