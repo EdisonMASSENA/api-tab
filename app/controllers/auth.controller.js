@@ -18,7 +18,7 @@ exports.signin = (req, res) => {
       }
 
       var token = jwt.sign({ id: user.id }, config.secret, {
-        expiresIn: 86400 // 24 hours
+        expiresIn: 8 // 24 hours
       });
 
       if (req.body.password == user.password) {
