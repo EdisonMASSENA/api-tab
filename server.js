@@ -1,5 +1,3 @@
-
-
 const express = require("express");
 const bodyparser = require("body-parser");
 const cors = require("cors");
@@ -25,7 +23,7 @@ require('./app/routes/auth.routes')(app);
 require("./app/routes/tableau.routes")(app);
 
 app.get('/', (request, response) => {
-  response.json({ info: 'Node.js,Express, and Postgres API' });
+  response.json({ info: 'Node.js, Express, and Postgres API' });
 });
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
