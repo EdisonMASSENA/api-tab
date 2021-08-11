@@ -8,8 +8,6 @@ module.exports = (sequelize, Sequelize) => {
     }},
   {
     timestamps: false,
-    createdAt: false,
-    updatedAt: false,
   });
 
   return User;
