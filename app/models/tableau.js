@@ -33,8 +33,7 @@ module.exports = (sequelize, Sequelize) => {
     },
     encours: {
       type: Sequelize.STRING
-    },
-  },
+    }},
   {
     timestamps: false
   });
