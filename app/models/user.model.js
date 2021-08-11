@@ -6,7 +6,11 @@ module.exports = (sequelize, Sequelize) => {
     password: {
       type: Sequelize.STRING
     }},
-  {timestamps: false,});
+  {
+    timestamps: false,
+    createdAt: false,
+    updatedAt: false,
+  });
 
   return User;
 };
