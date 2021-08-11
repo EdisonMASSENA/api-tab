@@ -31,7 +31,7 @@ module.exports = (sequelize, Sequelize) => {
     attention: {
       type: Sequelize.STRING
     },
-    enCours: {
+    encours: {
       type: Sequelize.STRING
     },
   });

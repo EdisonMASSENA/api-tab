@@ -15,7 +15,7 @@ exports.create = (req, res) => {
     tendance: req.body.tendance, 
     accompli: req.body.accompli, 
     attention: req.body.attention, 
-    enCours: req.body.enCours
+    encours: req.body.encours
   };
 
   Tableau.create(tableau)
