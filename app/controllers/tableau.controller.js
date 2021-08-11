@@ -9,7 +9,7 @@ exports.create = (req, res) => {
     direction: req.body.direction,
     priorite: req.body.priorite, 
     projet: req.body.projet, 
-    date: req.body.date, 
+    // date: req.body.date, 
     etat: req.body.etat, 
     tendance: req.body.tendance, 
     accompli: req.body.accompli, 
