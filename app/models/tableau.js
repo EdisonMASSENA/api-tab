@@ -13,9 +13,12 @@ module.exports = (sequelize, Sequelize) => {
     projet: {
       type: Sequelize.STRING
     },
-    // date: {
-    //   type: Sequelize.STRING
-    // },
+    type: {
+      type: Sequelize.STRING
+    },
+    date: {
+      type: Sequelize.STRING
+    },
     etat: {
       type: Sequelize.STRING
     },
