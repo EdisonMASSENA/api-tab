@@ -1,13 +1,13 @@
 const express = require("express");
 const cors = require("cors");
-const fileUpload = require('express-fileupload');
+// const fileUpload = require('express-fileupload');
 
 const db = require('./app/models');
 const app = express();
 var distDir = __dirname + "/dist/";
 
 
-app.use(fileUpload());
+// app.use(fileUpload());
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(distDir));
 

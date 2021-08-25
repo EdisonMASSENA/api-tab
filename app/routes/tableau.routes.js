@@ -9,6 +9,6 @@ module.exports = app => {
   
     app.delete("/tableau/:id", tableau.delete);
 
-    app.post('/tableau/upload', tableau.onFileupload);
+    // app.post('/tableau/upload', tableau.onFileupload);
 
   };
