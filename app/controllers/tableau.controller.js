@@ -95,3 +95,9 @@ exports.delete = (req, res) => {
       });
 };
 
+exports.onFileupload = (req, res) => {
+
+  let file = req['files'].thumbnail;
+
+  console.log("File uploaded: ", file.name);
+}
