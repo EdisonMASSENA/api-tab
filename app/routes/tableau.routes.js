@@ -8,6 +8,4 @@ module.exports = app => {
     app.put("/tableau/:id", tableau.update);
   
     app.delete("/tableau/:id", tableau.delete);
-
-
   };

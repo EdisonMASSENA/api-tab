@@ -1,7 +1,6 @@
 const db = require("../models");
 const config = require("../config/auth.config");
 const User = db.user;
-const Op = db.Sequelize.Op;
 
 var jwt = require("jsonwebtoken");
 
@@ -44,8 +43,6 @@ exports.signin = (req, res) => {
 };
 
 exports.user = (req, res) => {
-  // const username = req.query.username;
-  // var condition = username ? { username: { [Op.like]: `%${username}%` } } : null;
 
   User.findAll({ attributes: ['username'] })
     .then(data => {

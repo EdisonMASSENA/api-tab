@@ -13,9 +13,15 @@ module.exports = (sequelize, Sequelize) => {
     projet: {
       type: Sequelize.STRING
     },
-    // date: {
-    //   type: Sequelize.STRING
-    // },
+    type: {
+      type: Sequelize.STRING
+    },
+    mois: {
+      type: Sequelize.STRING
+    },
+    annee: {
+      type: Sequelize.STRING
+    },
     etat: {
       type: Sequelize.STRING
     },
@@ -28,9 +34,11 @@ module.exports = (sequelize, Sequelize) => {
     attention: {
       type: Sequelize.STRING
     },
-    enCours: {
+    encours: {
       type: Sequelize.STRING
-    },
+    }},
+  {
+    timestamps: false
   });
 
   return Tableau;

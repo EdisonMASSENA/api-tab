@@ -1,8 +1,8 @@
 module.exports = {
-    HOST: "ec2-54-72-155-238.eu-west-1.compute.amazonaws.com",
-    USER: "mxvmdcjcvxywjl",
-    PASSWORD: "e09a8540bb75e4bcd5d85a7ce2407753d20dbaa506f6818a487166c7192a4951",
-    DB: "d5vu1rlu4f3ecf",
+    HOST: "ec2-52-209-171-51.eu-west-1.compute.amazonaws.com",
+    USER: "lmgwokhihrakkg",
+    PASSWORD: "6ae5d15b4d1845a56901f3db49cfb933e3768efe0d20947d3fb5c3e84869cf76",
+    DB: "de6gsk2p6gqq73",
     dialect: "postgres",
     pool: {
       max: 5,

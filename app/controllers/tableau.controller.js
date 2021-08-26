@@ -9,12 +9,14 @@ exports.create = (req, res) => {
     direction: req.body.direction,
     priorite: req.body.priorite, 
     projet: req.body.projet, 
-    // date: req.body.date, 
+    type: req.body.type, 
+    mois: req.body.mois,
+    annee: req.body.annee, 
     etat: req.body.etat, 
     tendance: req.body.tendance, 
     accompli: req.body.accompli, 
     attention: req.body.attention, 
-    enCours: req.body.enCours
+    encours: req.body.encours
   };
 
   Tableau.create(tableau)
@@ -92,4 +94,3 @@ exports.delete = (req, res) => {
         });
       });
 };
-
