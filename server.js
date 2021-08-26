@@ -1,13 +1,13 @@
 const express = require("express");
 const cors = require("cors");
-// const fileUpload = require('express-fileupload');
+
 
 const db = require('./app/models');
 const app = express();
 var distDir = __dirname + "/dist/";
 
 
-// app.use(fileUpload());
+
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(distDir));
 
@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 require('./app/routes/auth.routes')(app);
-
+require('./app/routes/upload.routes')(app);
 require("./app/routes/tableau.routes")(app);
 
 app.get('/', (request, response) => {
