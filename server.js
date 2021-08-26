@@ -6,7 +6,6 @@ const db = require('./app/models');
 const app = express();
 var distDir = __dirname + "/dist/";
 
-global.__basedir = __dirname;
 
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(distDir));
@@ -23,7 +22,6 @@ app.use(express.urlencoded({ extended: true }));
 
 
 require('./app/routes/auth.routes')(app);
-require('./app/routes/upload.routes')(app);
 require("./app/routes/tableau.routes")(app);
 
 app.get('/', (request, response) => {
