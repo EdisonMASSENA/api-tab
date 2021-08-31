@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       data: {
         type: DataTypes.BLOB("long"),
       },
+    timestamps: false
     });
   
     return Image;
