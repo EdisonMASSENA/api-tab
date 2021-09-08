@@ -5,7 +5,7 @@ const cors = require("cors");
 const db = require('./app/models');
 const app = express();
 var distDir = __dirname + "/dist/";
-global.__basedir = __dirname;
+
 
 
 app.use(express.static(__dirname + '/public'));
