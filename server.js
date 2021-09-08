@@ -24,7 +24,7 @@ db.sequelize.sync({ force: false }).then(() => {
 
 require('./app/routes/auth.routes')(app);
 require("./app/routes/tableau.routes")(app);
-require('./app/routers/file.routes')(app);
+require('./app/routes/file.routes')(app);
 
 app.get('/', (request, response) => {
   response.json({ info: 'Node.js, Express, and Postgres API' });
