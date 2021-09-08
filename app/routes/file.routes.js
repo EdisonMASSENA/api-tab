@@ -1,15 +1,14 @@
-let express = require('express');
-let router = express.Router();
-let upload = require('../config/multer.config.js');
- 
-const fileWorker = require('../controllers/file.controller.js');
- 
-router.post('/api/file/upload', upload.single("file"), fileWorker.uploadFile);
- 
-router.get('/api/file/info', fileWorker.listAllFiles);
- 
-router.get('/api/file/:id', fileWorker.downloadFile);
+module.exports = app => {
 
-router.delete("/api/file/:id", fileWorker.delete);
+    let upload = require('../config/multer.config.js');
+
+    const fileWorker = require('../controllers/file.controller.js');
+  
+    app.post('/api/file/upload', upload.single("file"), fileWorker.uploadFile);
  
-module.exports = router;
+    app.get('/api/file/info', fileWorker.listAllFiles);
+     
+    app.get('/api/file/:id', fileWorker.downloadFile);
+    
+    app.delete("/api/file/:id", fileWorker.delete);
+  };
