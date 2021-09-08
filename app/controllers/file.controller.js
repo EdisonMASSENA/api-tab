@@ -1,6 +1,6 @@
 var stream = require('stream');
 
-const db = require('../config/db.config.js');
+const db = require("../models");
 const File = db.files;
 
 exports.uploadFile = (req, res) => {
