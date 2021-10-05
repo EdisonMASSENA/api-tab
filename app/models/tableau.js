@@ -16,10 +16,7 @@ module.exports = (sequelize, Sequelize) => {
     type: {
       type: Sequelize.STRING
     },
-    mois: {
-      type: Sequelize.STRING
-    },
-    annee: {
+    date: {
       type: Sequelize.STRING
     },
     etat: {

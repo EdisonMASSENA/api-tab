@@ -6,9 +6,14 @@ module.exports = (sequelize, Sequelize) => {
 	  name: {
 			type: Sequelize.STRING
 	  },
+	  projetId: {
+			type: Sequelize.INTEGER
+	  },
 	  data: {
 			type: Sequelize.BLOB('long')
-	  }
+	  }},
+	{
+		timestamps: false,
 	});
 	
 	return File;
