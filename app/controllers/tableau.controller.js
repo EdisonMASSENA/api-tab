@@ -10,13 +10,14 @@ exports.create = (req, res) => {
     priorite: req.body.priorite, 
     projet: req.body.projet, 
     type: req.body.type, 
-    mois: req.body.mois,
-    annee: req.body.annee, 
+    debut: req.body.debut,
+    fin: req.body.fin,
     etat: req.body.etat, 
     tendance: req.body.tendance, 
     accompli: req.body.accompli, 
     attention: req.body.attention, 
-    encours: req.body.encours
+    encours: req.body.encours,
+    progress: req.body.progress
   };
 
   Tableau.create(tableau)

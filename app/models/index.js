@@ -26,6 +26,7 @@ db.sequelize = sequelize;
 
 db.user = require("./user.model.js")(sequelize, Sequelize);
 db.tableau = require("./tableau.js")(sequelize, Sequelize);
+db.file = require("./file.model.js")(sequelize, Sequelize);
 
 
 module.exports = db;

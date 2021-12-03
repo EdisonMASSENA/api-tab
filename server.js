@@ -7,6 +7,7 @@ const app = express();
 var distDir = __dirname + "/dist/";
 
 
+
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(distDir));
 
@@ -15,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-// db.sequelize.sync();
+db.sequelize.sync();
 // db.sequelize.sync({ force: true }).then(() => {
 //   console.log("Drop and re-sync db.");
 // });
@@ -23,6 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 
 require('./app/routes/auth.routes')(app);
 require("./app/routes/tableau.routes")(app);
+require('./app/routes/file.routes')(app);
 
 app.get('/', (request, response) => {
   response.json({ info: 'Node.js, Express, and Postgres API' });

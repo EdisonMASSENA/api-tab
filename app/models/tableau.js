@@ -16,10 +16,10 @@ module.exports = (sequelize, Sequelize) => {
     type: {
       type: Sequelize.STRING
     },
-    mois: {
+    debut: {
       type: Sequelize.STRING
     },
-    annee: {
+    fin: {
       type: Sequelize.STRING
     },
     etat: {
@@ -36,6 +36,9 @@ module.exports = (sequelize, Sequelize) => {
     },
     encours: {
       type: Sequelize.STRING
+    },
+    progress: {
+      type: Sequelize.INTEGER
     }},
   {
     timestamps: false
