@@ -11,5 +11,10 @@ module.exports = function(app) {
 
 
   app.post("/api/auth/signin", controller.signin);
+
   app.get("/api/auth/user", controller.user);
+
+  app.post("/api/auth/user", controller.user);
+
+  app.get("/api/auth/admin", controller.admin);
 };

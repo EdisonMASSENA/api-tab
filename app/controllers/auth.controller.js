@@ -55,3 +55,34 @@ exports.user = (req, res) => {
       });
     });
 };
+
+exports.create = (req, res) => {
+
+  User.create({
+    username: req.body.username,
+    password: req.body.password
+  })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Une erreur s'est produite lors de la création du projet."
+      });
+    });
+};
+
+exports.admin = (req, res) => {
+
+  User.findAll()
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Une erreur s'est produite lors de la récupération des utilisateurs."
+      });
+    });
+};
