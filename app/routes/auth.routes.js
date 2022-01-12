@@ -14,7 +14,7 @@ module.exports = function(app) {
 
   app.get("/api/auth/user", controller.user);
 
-  app.post("/api/auth/user", controller.user);
+  app.post("/api/auth/admin", controller.create);
 
   app.get("/api/auth/admin", controller.admin);
 };
