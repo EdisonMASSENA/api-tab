@@ -3,7 +3,6 @@ const Tableau = db.tableau;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
-
   const tableau = {
     chef: req.body.chef,
     direction: req.body.direction,
@@ -36,7 +35,7 @@ exports.findAll = (req, res) => {
     const projet = req.query.projet;
     var condition = projet ? { projet: { [Op.like]: `%${projet}%` } } : null;
   
-    Tableau.findAll({ where: condition })
+    Tableau.findAll({ include: ["file"], where: condition })
       .then(data => {
         res.send(data);
       })
@@ -51,9 +50,7 @@ exports.findAll = (req, res) => {
 exports.update = (req, res) => {
     const id = req.params.id;
 
-    Tableau.update(req.body, {
-      where: { id: id }
-    })
+    Tableau.update(req.body, { where: { id: id } })
       .then(num => {
         if (num == 1) {
           res.send({
@@ -75,9 +72,7 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
     const id = req.params.id;
 
-    Tableau.destroy({
-      where: { id: id }
-    })
+    Tableau.destroy({ where: { id: id } })
       .then(num => {
         if (num == 1) {
           res.send({

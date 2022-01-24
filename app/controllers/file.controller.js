@@ -7,7 +7,8 @@ exports.uploadFile = (req, res) => {
 	File.create({
 		type: req.file.mimetype,
 		name: req.file.originalname,
-		data: req.file.buffer
+		data: req.file.buffer,
+    tableauId: req.body.tabId,
 	}).then(() => {
 		res.json({msg:'File uploaded successfully! -> filename = ' + req.file.originalname});
 	}).catch(err => {
@@ -16,14 +17,14 @@ exports.uploadFile = (req, res) => {
 	});
 }
 
-exports.listAllFiles = (req, res) => {
-	File.findAll({attributes: ['id', 'name']}).then(files => {
-	  res.json(files);
-	}).catch(err => {
-		console.log(err);
-		res.json({msg: 'Error', detail: err});
-	});
-}
+// exports.listAllFiles = (req, res) => {
+// 	File.findAll({attributes: ['id', 'name']}).then(files => {
+// 	  res.json(files);
+// 	}).catch(err => {
+// 		console.log(err);
+// 		res.json({msg: 'Error', detail: err});
+// 	});
+// }
 
 exports.downloadFile = (req, res) => {
 	File.findByPk(req.params.id).then(file => {
@@ -41,7 +42,6 @@ exports.downloadFile = (req, res) => {
 		console.log(err);
 		res.json({msg: 'Error', detail: err});
 	});
-
 
 }
 

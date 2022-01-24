@@ -8,7 +8,8 @@ module.exports = (sequelize, Sequelize) => {
 	  },
 	  data: {
 			type: Sequelize.BLOB('long')
-	  }},
+	  },
+	},
 	{
 		timestamps: false,
 	});

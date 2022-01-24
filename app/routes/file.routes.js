@@ -6,7 +6,7 @@ module.exports = app => {
   
     app.post('/api/file/upload', upload.single("file"), fileWorker.uploadFile);
  
-    app.get('/api/file/info', fileWorker.listAllFiles);
+    // app.get('/api/file/info', fileWorker.listAllFiles);
      
     app.get('/api/file/:id', fileWorker.downloadFile);
     
