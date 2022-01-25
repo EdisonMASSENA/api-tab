@@ -17,4 +17,7 @@ module.exports = function(app) {
   app.post("/api/auth/admin", controller.create);
 
   app.get("/api/auth/admin", controller.admin);
+
+  app.delete("/api/auth/admin/:id", controller.delete);
+
 };

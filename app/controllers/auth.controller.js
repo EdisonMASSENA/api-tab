@@ -86,3 +86,25 @@ exports.admin = (req, res) => {
       });
     });
 };
+
+exports.delete = (req, res) => {
+  const id = req.params.id;
+
+  User.destroy({ where: { id: id } })
+    .then(num => {
+      if (num == 1) {
+        res.send({
+          message: "Le user a été supprimé avec succès"
+        });
+      } else {
+        res.send({
+          message: `Suppresion impossible avec l'id=${id}.Elément manquant.`
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Suppresion impossible avec l'id=" + id
+      });
+    });
+};
