@@ -17,14 +17,15 @@ exports.uploadFile = (req, res) => {
 	});
 }
 
-// exports.listAllFiles = (req, res) => {
-// 	File.findAll({attributes: ['id', 'name']}).then(files => {
-// 	  res.json(files);
-// 	}).catch(err => {
-// 		console.log(err);
-// 		res.json({msg: 'Error', detail: err});
-// 	});
-// }
+exports.listAllFiles = (req, res) => {
+  const id = req.params.id;
+	File.findAll({attributes: ['id', 'name'], where: {tableauId: id} }).then(files => {
+	  res.json(files);
+	}).catch(err => {
+		console.log(err);
+		res.json({msg: 'Error', detail: err});
+	});
+}
 
 exports.downloadFile = (req, res) => {
 	File.findByPk(req.params.id).then(file => {
