@@ -28,6 +28,17 @@ db.user = require("./user.model.js")(sequelize, Sequelize);
 db.tableau = require("./tableau.js")(sequelize, Sequelize);
 db.file = require("./file.model.js")(sequelize, Sequelize);
 
+db.tableau.hasMany(db.file, { 
+  as: "file",
+  onDelete: "cascade",
+  hooks: true,
+});
+db.file.belongsTo(db.tableau, {
+  as: "tableau",
+  foreignKey: "tableauId",
+  onDelete: "cascade",
+  hooks: true,
+});
 
 module.exports = db;
 

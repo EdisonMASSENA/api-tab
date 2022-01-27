@@ -11,5 +11,13 @@ module.exports = function(app) {
 
 
   app.post("/api/auth/signin", controller.signin);
+
   app.get("/api/auth/user", controller.user);
+
+  app.post("/api/auth/admin", controller.create);
+
+  app.get("/api/auth/admin", controller.admin);
+
+  app.delete("/api/auth/admin/:id", controller.delete);
+
 };

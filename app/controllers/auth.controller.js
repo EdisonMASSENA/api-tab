@@ -55,3 +55,56 @@ exports.user = (req, res) => {
       });
     });
 };
+
+exports.create = (req, res) => {
+
+  User.create({
+    username: req.body.username,
+    password: req.body.password
+  })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Une erreur s'est produite lors de la création du projet."
+      });
+    });
+};
+
+exports.admin = (req, res) => {
+
+  User.findAll()
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Une erreur s'est produite lors de la récupération des utilisateurs."
+      });
+    });
+};
+
+exports.delete = (req, res) => {
+  const id = req.params.id;
+
+  User.destroy({ where: { id: id } })
+    .then(num => {
+      if (num == 1) {
+        res.send({
+          message: "Le user a été supprimé avec succès"
+        });
+      } else {
+        res.send({
+          message: `Suppresion impossible avec l'id=${id}.Elément manquant.`
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Suppresion impossible avec l'id=" + id
+      });
+    });
+};
