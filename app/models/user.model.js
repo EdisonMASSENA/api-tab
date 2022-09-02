@@ -12,7 +12,7 @@ module.exports = (sequelize, Sequelize) => {
 
   User.create({
     username: "Admin",
-    password: "123456"
+    password: 123456
   });
 
   return User;
