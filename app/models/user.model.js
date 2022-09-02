@@ -10,5 +10,10 @@ module.exports = (sequelize, Sequelize) => {
     timestamps: false,
   });
 
+  User.create({
+    username: "Admin",
+    password: "123456"
+  });
+
   return User;
 };

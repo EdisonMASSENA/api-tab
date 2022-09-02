@@ -108,8 +108,3 @@ exports.delete = (req, res) => {
       });
     });
 };
-
-// User.create({
-//   username: "Admin",
-//   password: "123456"
-// });
